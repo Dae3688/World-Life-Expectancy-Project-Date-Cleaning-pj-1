@@ -1,4 +1,4 @@
--- US householding income data clearing --
+-- US household income data clearing --
 
 Select *
 from ushouseholdincome_statistics;
