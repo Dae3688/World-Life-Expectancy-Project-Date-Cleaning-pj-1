@@ -1,7 +1,7 @@
 # World Life Expectancy Project (Exploratory Data Analysis)#
-# I explored the data by looking at the life expectancy, 
-#  based on coutries, seeing if they were develped/developing and looking at the motality rates. 
-# I also compared that data to the BMI and to see if that is in had any correlation of them being develped.
+# I explored the data by looking at the life expectancy, insights and trends. 
+#  This is based on countries, seeing if they were developed/developing and looking at the motality rates. 
+# I also compared that data to the BMI and to see if that had any correlation of them being developed/developing.
 
 SELECT *
 FROM worldlifeexpectancy_table
