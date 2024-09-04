@@ -25,7 +25,7 @@ where ROW_NUM > 1;
 FROM worldlifeexpectancy_table) As Subquery
 where Row_num > 1);
  
- SET SQL_SAFE_UPDATES = 0; # I made sure to set this to '0' to not run int issues and also created a backup in case there are any irreversible errors 
+ SET SQL_SAFE_UPDATES = 0; # I made sure to set this to '0' to not run into issues and also created a backup in case there are any irreversible errors 
  
  
 Select *    				# Checked to see what status is blank
@@ -71,10 +71,10 @@ WHERE t1.Status = '' AND t2.Status = 'Developed';
  
 Select *    
 From worldlifeexpectancy_table
-where `Life expectancy`= '';    # I decided to populate the data by averaging the data out
+where `Life expectancy`= '';    # I decided to populate the data to look at missing blanks under the `life expectancy` column.
 
 
-Select t1.Country, t1.Year, t1.`Life expectancy`,  # I decided to averaging the data out to fill in missing blanks
+Select t1.Country, t1.Year, t1.`Life expectancy`,  # I decided to averaging the data out to fill in missing blanks under `life expectancy`
 t2.Country, t2.Year, t2.`Life expectancy`,
 t3.Country, t3.Year, t3.`Life expectancy`,
 ROUND((t2.`Life expectancy` + t3.`Life expectancy`)/2,1)
