@@ -1,9 +1,9 @@
 -- US Household Income Data Clearing --
 
 Select *
-from ushouseholdincome_statistics;
+from ushouseholdincome_statistics; # assessed data
 
-ALTER TABLE ushouseholdincome_statistics 
+ALTER TABLE ushouseholdincome_statistics  #altered the table to change the column name from those weird characters to `id`
 RENAME COLUMN `ï»¿id` TO `id`;
 
 Select *
@@ -42,20 +42,20 @@ WHERE id IN (SELECT id FROM duplicate_ids)
 ;
 SET SQL_SAFE_UPDATES = 0;
 
-DELETE FROM us_project.ushouseholdincome_statistics
+DELETE FROM us_project.ushouseholdincome_statistics    #Proceeded to delete the duplicates 
 WHERE id IN (SELECT id FROM duplicate_ids)
 ;
 select id, COUNT(id)				# Checking for the duplicates
 from us_project.ushouseholdincome_statistics
 group by id
-having COUNT(id) > 1; # duplicates eliminated 
+having COUNT(id) > 1;               # duplicates eliminated 
 
 SELECT id, COUNT(*) AS duplicate_count
 FROM ushouseholdincome
 GROUP BY id
 HAVING COUNT(*) > 1;
 
-SET SQL_SAFE_UPDATES = 0;
+SET SQL_SAFE_UPDATES = 0;       # I had to run this for it to register, so I can be able to move forward with my query
 
 DELETE FROM ushouseholdincome    #I recieved this error and corrected it.Error Code: 1175. You are using safe update mode.... Then I had to turn off the sfe mode again
 WHERE id IN (
@@ -71,11 +71,11 @@ SELECT id, ROW_NUMBER () over (PARTITION BY id) 'the_count'
     FROM ushouseholdincome
     where 'the_count' > 1;  # duplicates eliminated 
 
-SELECT DISTINCT state_name # Checked for any incorrect spellings of states
+SELECT DISTINCT state_name   # Checked for any incorrect spellings of states
 from ushouseholdincome
 ORDER BY 1;
 
-UPDATE ushouseholdincome #updated the column were there was some mis spelling of 'Georgia'
+UPDATE ushouseholdincome     #updated the column were there was a mis-spelling of 'Georgia'
 SET State_Name ='Georgia'
 where State_Name = 'georia';
 
