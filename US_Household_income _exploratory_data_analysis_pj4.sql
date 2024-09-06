@@ -14,7 +14,7 @@ limit 10; # looked up the top 10
 
 
 SELECT u.State_Name, city, 
-       round(AVG(us.mean), 1), round(AVG(us.median), 1) # Wanted to know the highest mean and median averages of househole incomes (based on state and city)
+       round(AVG(us.mean), 1), round(AVG(us.median), 1) # Wanted to know the highest mean and median averages of household incomes (based on state and city)
 FROM us_project.ushouseholdincome AS u					
  JOIN us_project.ushouseholdincome_statistics AS us
 ON u.id = us.id
@@ -23,7 +23,7 @@ ORDER BY round(AVG(us.mean), 1) DESC
 ;
 
 SELECT type, COUNT(type), 
-       round(AVG(us.mean), 1), round(AVG(us.median), 1) # looked at dfferent "types" such as track, city or borough to see the average mean and median of househole incomes
+       round(AVG(us.mean), 1), round(AVG(us.median), 1) # looked at dfferent "types" such as track, city or borough to see the average mean and median of household incomes
 FROM us_project.ushouseholdincome AS u					
 INNER JOIN us_project.ushouseholdincome_statistics AS us
 ON u.id = us.id
