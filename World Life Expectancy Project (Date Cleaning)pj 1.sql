@@ -1,4 +1,4 @@
-# World Life Expectancy Project (Date Cleaning)
+# World Life Expectancy Project (Data Cleaning)
 
 Select *     # analyzed data table
 From worldlifeexpectancy_table
